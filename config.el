@@ -111,12 +111,12 @@
       mu4e-main-buffer-hide-personal-addresses t
       message-send-mail-function 'smtpmail-send-it
       starttls-use-gnutls t
-      smtpmail-starttls-credentials '(("mm-admin.bethelsozo.ru" 587 nil nil))
-      mu4e-sent-folder "/account-1/Sent"
-      mu4e-drafts-folder "/account-1/Drafts"
-      mu4e-trash-folder "/account-1/Trash"
+      smtpmail-starttls-credentials '(("m-admin.bethelsozo.ru" 587 nil nil))
+      mu4e-sent-folder "/info-bethelsozo/Sent"
+      mu4e-drafts-folder "/info-bethelsozo/Drafts"
+      mu4e-trash-folder "/info-bethelsozo/Trash"
       mu4e-maildir-shortcuts
-      '(("/account-1/Inbox"      . ?i)
-        ("/account-1/Sent Items" . ?s)
-        ("/account-1/Drafts"     . ?d)
-        ("/account-1/Trash"      . ?t)))
+      '(("/info-bethelsozo/Inbox"      . ?i)
+        ("/info-bethelsozo/Sent Items" . ?s)
+        ("/info-bethelsozo/Drafts"     . ?d)
+        ("/info-bethelsozo/Trash"      . ?t)))
