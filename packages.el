@@ -50,3 +50,9 @@
 ;(unpin! t)
 
 (package! evil-tutor)
+
+(package! org-appear
+  :recipe (:host github
+           :repo "awth13/org-appear"))
+
+(package! org-super-agenda)

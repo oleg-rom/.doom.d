@@ -81,4 +81,24 @@
                  ("\\paragraph{%s}" . "\\paragraph*{%s}")
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
+;; Global org indent mode
 (setq org-indent-mode t)
+
+;; Reenable autosaving
+(setq auto-save-default t
+      make-backup-files t)
+
+;; Disable exit confirmation
+(setq confirm-kill-emacs nil)
+
+;; Hide org markup indicators
+(after! org (setq org-hide-emphasis-markers t))
+
+;; Hook for org-appear-mode (show org markdown indicators when the cursor is placed on it)
+(add-hook! org-mode :append #'org-appear-mode)
+
+(use-package! org-super-agenda
+  :after org-agenda
+  :config
+  (setq org-super-agenda-groups '((:auto-dir-name t)))
+  (org-super-agenda-mode))
