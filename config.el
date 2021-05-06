@@ -97,8 +97,26 @@
 ;; Hook for org-appear-mode (show org markdown indicators when the cursor is placed on it)
 (add-hook! org-mode :append #'org-appear-mode)
 
-(use-package! org-super-agenda
-  :after org-agenda
-  :config
-  (setq org-super-agenda-groups '((:auto-dir-name t)))
-  (org-super-agenda-mode))
+;; MU4E email client
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+
+;;(require 'smtpmail)
+(setq user-mail-address "info@bethelsozo.ru"
+      user-full-name  "Oleg Romanenko"
+      ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
+      ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
+      ;; Be sure that the following command is: "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval  300
+      mu4e-main-buffer-hide-personal-addresses t
+      message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("mm-admin.bethelsozo.ru" 587 nil nil))
+      mu4e-sent-folder "/account-1/Sent"
+      mu4e-drafts-folder "/account-1/Drafts"
+      mu4e-trash-folder "/account-1/Trash"
+      mu4e-maildir-shortcuts
+      '(("/account-1/Inbox"      . ?i)
+        ("/account-1/Sent Items" . ?s)
+        ("/account-1/Drafts"     . ?d)
+        ("/account-1/Trash"      . ?t)))

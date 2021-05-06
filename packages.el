@@ -55,4 +55,3 @@
   :recipe (:host github
            :repo "awth13/org-appear"))
 
-(package! org-super-agenda)
