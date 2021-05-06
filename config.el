@@ -97,7 +97,6 @@
 ;; Hook for org-appear-mode (show org markdown indicators when the cursor is placed on it)
 (add-hook! org-mode :append #'org-appear-mode)
 
-<<<<<<< HEAD
 ;; MU4E email client
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
@@ -121,5 +120,3 @@
         ("/account-1/Sent Items" . ?s)
         ("/account-1/Drafts"     . ?d)
         ("/account-1/Trash"      . ?t)))
-=======
->>>>>>> 177d62bcc7839e0e2f78dd374307aa23408d79b4
