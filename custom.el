@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(initial-frame-alist '((fullscreen . maximized)))
  '(org-agenda-files
-   '("/home/oleg/Dropbox/org/СОЗО.org" "/home/oleg/Dropbox/org/Церковь.org" "/home/oleg/Dropbox/org/Личное.org" "/home/oleg/Dropbox/org/Книги.org" "/home/oleg/Dropbox/org/Воскресные Служения.org" "/home/oleg/Dropbox/org/bibliography.org" "/home/oleg/Dropbox/org/Начало работы с Orgzly.org" "/home/oleg/Dropbox/org/Начало.org"))
+   '("/home/oleg/Dropbox/org/Личное.org" "/home/oleg/Dropbox/org/СОЗО.org" "/home/oleg/Dropbox/org/Церковь.org" "/home/oleg/Dropbox/org/Книги.org" "/home/oleg/Dropbox/org/Воскресные Служения.org" "/home/oleg/Dropbox/org/Начало работы с Orgzly.org" "/home/oleg/Dropbox/org/Начало.org"))
  '(smtpmail-smtp-server "m-admin.bethelsozo.ru")
  '(smtpmail-smtp-service 25))
 (custom-set-faces

@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Oleg Romanenko"
-      user-mail-address "oleg.mypost@gmail.com")
+      user-mail-address "oleginga@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -97,24 +97,26 @@
 ;; Hook for org-appear-mode (show org markdown indicators when the cursor is placed on it)
 (add-hook! org-mode :append #'org-appear-mode)
 
-;; mu4e configuration
-(use-package mu4e
-  :ensure nil
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  ;; :defer 20 ; Wait until 20 seconds after startup
-  :config
+;; MU4E email client
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
-
-  ;; Refresh mail using isync every 5 minutes
-  (setq mu4e-update-interval (* 5 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-maildir "~/Mail")
-
-  (setq mu4e-maildir-shortcuts
-    '((:maildir "/Inbox"    :key ?i)
-      (:maildir "/[Gmail].Sent Mail" :key ?s)
-      (:maildir "/[Gmail].Trash"     :key ?t)
-      (:maildir "/[Gmail].Drafts"    :key ?d)
-      (:maildir "/[Gmail].All Mail"  :key ?a))))
+;;(require 'smtpmail)
+(setq user-mail-address "info@bethelsozo.ru"
+      user-full-name  "Oleg Romanenko"
+      ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
+      ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
+      ;; Be sure that the following command is: "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval  300
+      mu4e-main-buffer-hide-personal-addresses t
+      message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials '(("m-admin.bethelsozo.ru" 587 nil nil))
+      mu4e-sent-folder "/info-bethelsozo/Sent"
+      mu4e-drafts-folder "/info-bethelsozo/Drafts"
+      mu4e-trash-folder "/info-bethelsozo/Trash"
+      mu4e-maildir-shortcuts
+      '(("/info-bethelsozo/Inbox"      . ?i)
+        ("/info-bethelsozo/Sent Items" . ?s)
+        ("/info-bethelsozo/Drafts"     . ?d)
+        ("/info-bethelsozo/Trash"      . ?t)))
